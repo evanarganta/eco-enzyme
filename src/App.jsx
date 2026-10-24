@@ -6,10 +6,10 @@ import StaggeredMenu from './components/StaggeredMenu.jsx'
 import './App.css'
 
 const menuItems = [
-  { label: 'Beranda', ariaLabel: 'Ke beranda', to: '/' },
-  { label: 'Bahan', ariaLabel: 'Lihat bahan', to: '/bahan' },
-  { label: 'Cara membuat', ariaLabel: 'Lihat cara membuat', to: '/cara-membuat' },
-  { label: 'Dokumentasi', ariaLabel: 'Lihat dokumentasi', to: '/dokumentasi' },
+  { label: 'Beranda.', ariaLabel: 'Ke beranda', to: '/' },
+  { label: 'Bahan.', ariaLabel: 'Lihat bahan', to: '/bahan' },
+  { label: 'Pembuatan.', ariaLabel: 'Lihat cara membuat', to: '/cara-membuat' },
+  { label: 'Dokumentasi.', ariaLabel: 'Lihat dokumentasi', to: '/dokumentasi' },
 ]
 
 const ingredients = [
@@ -196,14 +196,13 @@ function HomePage() {
         <div className="hero-content page-width">
           <h1>Pembuatan<br /><em>Eco Enzim</em>.</h1>
           <p className="hero-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+            Disiapkan oleh Kelompok 6, XI RPL 1
           </p>
         </div>
       </section>
       <section className="home-info">
         <div className="page-width">
           <div className="home-info-heading">
-            <span className="section-number">TENTANG PRAKTIKUM</span>
             <h2>Mengolah sisa organik melalui fermentasi.</h2>
           </div>
           <p className="home-info-copy">
@@ -275,7 +274,7 @@ function StepsPage() {
     <main className="inner-page steps-page">
       <PageHero
         image="https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=2000&q=85"
-        title="Cara membuat."
+        title="Pembuatan."
       />
       <section className="content-section page-width">
         <div className="steps-grid">
@@ -438,8 +437,8 @@ function App() {
       </Routes>
       <footer className="site-footer">
         <div className="page-width">
-          <span>ECco enzim.</span>
-          <span>Proyek praktikum kelompok</span>
+          <span>Eco Enzyme.</span>
+          <span>XI RPL 1</span>
         </div>
       </footer>
     </>
