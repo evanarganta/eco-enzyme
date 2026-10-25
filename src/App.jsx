@@ -8,7 +8,7 @@ import './App.css'
 const menuItems = [
   { label: 'Beranda.', ariaLabel: 'Ke beranda', to: '/' },
   { label: 'Bahan.', ariaLabel: 'Lihat bahan', to: '/bahan' },
-  { label: 'Pembuatan.', ariaLabel: 'Lihat cara membuat', to: '/cara-membuat' },
+  { label: 'Pembuatan.', ariaLabel: 'Lihat cara membuat', to: '/pembuatan' },
   { label: 'Dokumentasi.', ariaLabel: 'Lihat dokumentasi', to: '/dokumentasi' },
 ]
 
@@ -196,7 +196,7 @@ function HomePage() {
         <div className="hero-content page-width">
           <h1>Pembuatan<br /><em>Eco Enzim</em>.</h1>
           <p className="hero-description">
-            Disiapkan oleh Kelompok 6, XI RPL 1
+            Disiapkan oleh Kelompok berapa lah itu pokonya, XI RPL 1
           </p>
         </div>
       </section>
@@ -431,7 +431,7 @@ function App() {
       <Routes>
         <Route element={<HomePage />} path="/" />
         <Route element={<IngredientsPage />} path="/bahan" />
-        <Route element={<StepsPage />} path="/cara-membuat" />
+        <Route element={<StepsPage />} path="/pembuatan" />
         <Route element={<DocumentationPage />} path="/dokumentasi" />
         <Route element={<NotFoundPage />} path="*" />
       </Routes>
