@@ -29,7 +29,7 @@ const dumpModules = import.meta.glob('./assets/dump/*.{jpeg,jpg,png,webp,JPEG,JP
 
 const dumpImages = Object.values(dumpModules).map((src, index) => ({
   src,
-  alt: `Dokumentasi Praktikum Eco Enzyme ${index + 1}`,
+  alt: `Dokumentasi Praktikum Eco-enzyme ${index + 1}`,
 }))
 
 const menuItems = [
@@ -44,19 +44,19 @@ const ingredients = [
     name: 'Gula merah.',
     detail: 'Gula merah, molase, atau gula aren menjadi sumber nutrisi & energi mikroba selama proses fermentasi.',
     image: gulmerImg,
-    alt: 'Gula merah untuk eco enzyme',
+    alt: 'Gula merah untuk eco-enzyme',
   },
   {
     name: 'Buah jeruk.',
-    detail: 'Gunakan potongan buah atau kulit jeruk segar. Menghasilkan aroma eco enzyme yang harum dan segar alami.',
+    detail: 'Gunakan potongan buah atau kulit jeruk segar. Menghasilkan aroma eco-enzyme yang harum dan segar alami.',
     image: jerukImg,
-    alt: 'Buah jeruk segar untuk eco enzyme',
+    alt: 'Buah jeruk segar untuk eco-enzyme',
   },
   {
     name: 'Air bersih.',
     detail: 'Gunakan air sumur, air mineral, atau air tanpa kaporit. Sisakan ruang di wadah untuk gas fermentasi.',
     image: airImg,
-    alt: 'Air bersih untuk fermentasi eco enzyme',
+    alt: 'Air bersih untuk fermentasi eco-enzyme',
   },
 ]
 
@@ -75,9 +75,9 @@ const tools = [
   },
   {
     name: 'Saringan.',
-    detail: 'Menyaring larutan gula dari ampas kotoran kasar serta memisahkan cairan murni eco enzyme dari ampas saat panen.',
+    detail: 'Menyaring larutan gula dari ampas kotoran kasar serta memisahkan cairan murni eco-enzyme dari ampas saat panen.',
     image: pshtImg,
-    alt: 'Saringan halus larutan eco enzyme',
+    alt: 'Saringan halus larutan eco-enzyme',
   },
   {
     name: 'Galon.',
@@ -93,7 +93,7 @@ const tools = [
   },
   {
     name: 'Timbangan.',
-    detail: 'Menakar berat bahan secara presisi agar memenuhi perbandingan rasio baku eco enzyme 1 bagian gula : 3 buah : 10 air.',
+    detail: 'Menakar berat bahan secara presisi agar memenuhi perbandingan rasio baku eco-enzyme 1 bagian gula : 3 buah : 10 air.',
     image: timbanganImg,
     alt: 'Timbangan untuk menakar bahan',
   },
@@ -232,7 +232,7 @@ function HomePage() {
           }}
         />
         <div className="hero-content page-width">
-          <h1>Pembuatan<br /><em>Eco Enzyme</em>.</h1>
+          <h1>Pembuatan<br /><em>Eco-enzyme</em>.</h1>
           <p className="hero-description">Oleh Kelompok 3 dari XI RPL 1.</p>
         </div>
       </section>

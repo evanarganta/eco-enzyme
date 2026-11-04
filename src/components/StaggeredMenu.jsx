@@ -138,7 +138,7 @@ function StaggeredMenu({
         ))}
       </div>
       <header className="staggered-menu-header">
-        <Link aria-label="Eco Enzyme, ke beranda" className="sm-logo" onClick={closeMenu} to="/">
+        <Link aria-label="Eco-enzyme, ke beranda" className="sm-logo" onClick={closeMenu} to="/">
           <img alt="" className="sm-logo-img" draggable="false" src={logoUrl} />
         </Link>
         <button
