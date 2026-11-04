@@ -29,7 +29,7 @@ const dumpModules = import.meta.glob('./assets/dump/*.{jpeg,jpg,png,webp,JPEG,JP
 
 const dumpImages = Object.values(dumpModules).map((src, index) => ({
   src,
-  alt: `Dokumentasi Praktikum Eco Enzim ${index + 1}`,
+  alt: `Dokumentasi Praktikum Eco Enzyme ${index + 1}`,
 }))
 
 const menuItems = [
@@ -44,19 +44,19 @@ const ingredients = [
     name: 'Gula merah.',
     detail: 'Gula merah, molase, atau gula aren menjadi sumber nutrisi & energi mikroba selama proses fermentasi.',
     image: gulmerImg,
-    alt: 'Gula merah untuk eco enzim',
+    alt: 'Gula merah untuk eco enzyme',
   },
   {
     name: 'Buah jeruk.',
-    detail: 'Gunakan potongan buah atau kulit jeruk segar. Menghasilkan aroma eco enzim yang harum dan segar alami.',
+    detail: 'Gunakan potongan buah atau kulit jeruk segar. Menghasilkan aroma eco enzyme yang harum dan segar alami.',
     image: jerukImg,
-    alt: 'Buah jeruk segar untuk eco enzim',
+    alt: 'Buah jeruk segar untuk eco enzyme',
   },
   {
     name: 'Air bersih.',
     detail: 'Gunakan air sumur, air mineral, atau air tanpa kaporit. Sisakan ruang di wadah untuk gas fermentasi.',
     image: airImg,
-    alt: 'Air bersih untuk fermentasi eco enzim',
+    alt: 'Air bersih untuk fermentasi eco enzyme',
   },
 ]
 
@@ -75,9 +75,9 @@ const tools = [
   },
   {
     name: 'Saringan.',
-    detail: 'Menyaring larutan gula dari ampas kotoran kasar serta memisahkan cairan murni eco enzim dari ampas saat panen.',
+    detail: 'Menyaring larutan gula dari ampas kotoran kasar serta memisahkan cairan murni eco enzyme dari ampas saat panen.',
     image: pshtImg,
-    alt: 'Saringan halus larutan eco enzim',
+    alt: 'Saringan halus larutan eco enzyme',
   },
   {
     name: 'Galon.',
@@ -93,7 +93,7 @@ const tools = [
   },
   {
     name: 'Timbangan.',
-    detail: 'Menakar berat bahan secara presisi agar memenuhi perbandingan rasio baku eco enzim 1 bagian gula : 3 buah : 10 air.',
+    detail: 'Menakar berat bahan secara presisi agar memenuhi perbandingan rasio baku eco enzyme 1 bagian gula : 3 buah : 10 air.',
     image: timbanganImg,
     alt: 'Timbangan untuk menakar bahan',
   },
@@ -136,6 +136,15 @@ const steps = [
     image: sixImg,
     alt: 'Pemeriksaan galon fermentasi dan pembuangan gas secara berkala',
   },
+]
+
+const teamMembers = [
+  'Evan Arganta',
+  'Alief Rizky Ramadhan Atmadja',
+  'Ahmad Haikal Ramadhan',
+  'Ignatius Nino Jumantoro',
+  'M Vallerian Aprilio Gunawan',
+  'Nicolas Peb Zolo',
 ]
 
 function useParallax(speed = 0.3) {
@@ -254,50 +263,17 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="home-guide page-width">
-        <div className="home-guide-header">
-          <h2>Tahapan pembuatan eco enzim dari awal hingga panen.</h2>
-          <p>Alur kerja terstruktur yang dijalankan kelompok selama masa fermentasi eco enzim.</p>
+      <section className="home-team page-width">
+        <div className="home-team-header">
+          <h2>Anggota Kelompok 3 dari XI RPL 1.</h2>
         </div>
-        <div className="home-guide-grid">
-          <article className="guide-card">
-            <div className="guide-card-top">
-              <span className="guide-step">Hari ke-1</span>
-            </div>
-            <h3>Persiapan dan penakaran.</h3>
-            <p className="guide-desc">Menyiapkan bahan dengan rasio tepat 1 : 3 : 10 dan wadah plastik yang aman.</p>
-            <ul className="guide-list">
-              <li>1 bagian gula merah, 3 bagian potongan buah jeruk, dan 10 bagian air bersih.</li>
-              <li>Potong kecil buah jeruk agar luas permukaan kontak mikroba fermentasi maksimal.</li>
-              <li>Sisakan ruang kosong sekitar 20% di wadah untuk tekanan gas fermentasi.</li>
-            </ul>
-          </article>
-
-          <article className="guide-card">
-            <div className="guide-card-top">
-              <span className="guide-step">Bulan 1 — 3</span>
-            </div>
-            <h3>Fermentasi dan perawatan.</h3>
-            <p className="guide-desc">Menjaga proses fermentasi anaerob dan mengontrol pelepasan akumulasi gas.</p>
-            <ul className="guide-list">
-              <li>Buka tutup sedikit setiap 1–2 hari untuk membuang gas, lalu rapatkan kembali.</li>
-              <li>Gas mulai stabil, simpan wadah tanpa perlu sering dibuka di tempat teduh.</li>
-              <li>Aroma asam-segar khas jeruk; jamur putih halus di permukaan adalah tanda baik.</li>
-            </ul>
-          </article>
-
-          <article className="guide-card">
-            <div className="guide-card-top">
-              <span className="guide-step">Hari ke-90</span>
-            </div>
-            <h3>Penyaringan dan panen.</h3>
-            <p className="guide-desc">Memanen cairan enzim setelah 3 bulan dan memanfaatkan kembali sisa ampasnya.</p>
-            <ul className="guide-list">
-              <li>Saring cairan menggunakan kain kasa bersih, tuang ke botol tertutup rapat.</li>
-              <li>Cairan berwarna cokelat jernih beraroma harum fermentasi (tidak berbau busuk).</li>
-              <li>Ampas jeruk sisa dapat dikeringkan untuk pengharum atau dijadikan pupuk kompos.</li>
-            </ul>
-          </article>
+        <div className="home-team-grid">
+          {teamMembers.map((name, index) => (
+            <article className="team-card" key={name || index}>
+              <span className="team-card-number">{String(index + 1).padStart(2, '0')}</span>
+              <span className="team-card-name">{name}</span>
+            </article>
+          ))}
         </div>
       </section>
     </main>

@@ -188,108 +188,52 @@
   flex-grow: 1;
 }
 
-.home-guide {
-  padding-top: 72px;
-  padding-bottom: 88px;
+.home-team {
+  padding-top: clamp(64px, 7vw, 96px);
+  padding-bottom: clamp(72px, 8vw, 112px);
 }
 
-.home-guide-header {
+.home-team-header {
   margin-bottom: 32px;
 }
 
-.home-guide-header h2 {
+.home-team-header h2 {
   font-family: var(--serif);
   font-size: clamp(26px, 3.2vw, 36px);
   font-weight: 400;
   color: var(--text);
-  margin: 12px 0 10px;
-  letter-spacing: -0.4px;
-  line-height: 1.25;
+  margin: 12px 0 0;
+  letter-spacing: -0.3px;
 }
 
-.home-guide-header p {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.6;
-  max-width: 620px;
-  margin: 0;
-}
-
-.home-guide-grid {
+.home-team-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 12px;
 }
 
-.guide-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--surface);
-  border-radius: var(--radius-md);
-  padding: 26px 24px;
-}
-
-.guide-card-top {
+.team-card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
 }
 
-.guide-step {
+.team-card-number {
   color: var(--accent);
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.5px;
   font-feature-settings: "tnum";
 }
 
-.guide-card h3 {
-  margin: 0 0 10px;
+.team-card-name {
   color: var(--text);
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 400;
-  letter-spacing: -0.2px;
-}
-
-.guide-desc {
-  margin: 0 0 18px;
-  color: var(--muted);
-  font-size: 13.5px;
-  line-height: 1.6;
-}
-
-.guide-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-  flex-grow: 1;
-}
-
-.guide-list li {
-  position: relative;
-  padding-left: 14px;
-  font-size: 12.5px;
-  color: var(--text-secondary);
-  line-height: 1.55;
-}
-
-.guide-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
   font-size: 15px;
-  line-height: 1.2;
-}
-
-.guide-list li strong {
-  color: var(--text);
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: -0.1px;
 }
 
 .ingredient-grid {
@@ -617,10 +561,14 @@
 
 @media (max-width: 900px) {
   .steps-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
 
+  .home-team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -640,11 +588,6 @@
 .home-benefits-grid {
   grid-template-columns: 1fr;
   gap: 14px;
-}
-
-.home-guide-grid {
-  grid-template-columns: 1fr;
-  gap: 20px;
 }
 
 .ingredient-grid {
@@ -704,5 +647,15 @@
 .steps-grid {
   grid-template-columns: 1fr;
   gap: 14px;
+}
+
+.home-team-grid {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.home-team {
+  padding-top: 48px;
+  padding-bottom: 64px;
 }
 }
