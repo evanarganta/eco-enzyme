@@ -3,103 +3,149 @@ import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 import StaggeredMenu from './components/StaggeredMenu.jsx'
+import gulmerImg from './assets/images/gulmer.jpeg'
+import jerukImg from './assets/images/jeruk.jpeg'
+import airImg from './assets/images/air.jpg'
+import oneImg from './assets/images/cacah.jpeg'
+import twoImg from './assets/images/larut.jpeg'
+import threeImg from './assets/images/tiga.jpeg'
+import fourImg from './assets/images/tuang.jpeg'
+import fiveImg from './assets/images/kocok.jpeg'
+import sixImg from './assets/images/pantau.jpeg'
+import heroImg from './assets/images/hero.jpeg'
+import pshtImg from './assets/images/psht.jpeg'
+import galonImg from './assets/images/galon.jpeg'
+import emberImg from './assets/images/ember.jpeg'
+import timbanganImg from './assets/images/timbangan.jpeg'
+import pembuatanImg from './assets/dump/WhatsApp Image 2026-11-04 at 9.54.08 AM.jpeg'
+import logoImg from './assets/images/logo.svg'
+import DomeGallery from './components/DomeGallery.jsx'
 import './App.css'
+
+const dumpModules = import.meta.glob('./assets/dump/*.{jpeg,jpg,png,webp,JPEG,JPG,PNG}', {
+  eager: true,
+  import: 'default',
+})
+
+const dumpImages = Object.values(dumpModules).map((src, index) => ({
+  src,
+  alt: `Dokumentasi Praktikum Eco Enzim ${index + 1}`,
+}))
 
 const menuItems = [
   { label: 'Beranda.', ariaLabel: 'Ke beranda', to: '/' },
-  { label: 'Bahan.', ariaLabel: 'Lihat bahan', to: '/bahan' },
+  { label: 'Perlengkapan.', ariaLabel: 'Lihat perlengkapan', to: '/perlengkapan' },
   { label: 'Pembuatan.', ariaLabel: 'Lihat cara membuat', to: '/pembuatan' },
   { label: 'Dokumentasi.', ariaLabel: 'Lihat dokumentasi', to: '/dokumentasi' },
 ]
 
 const ingredients = [
   {
-    amount: '1 bagian',
-    name: 'Gula merah',
-    detail: 'Gula merah, molase, atau gula aren menjadi sumber makanan selama fermentasi.',
+    name: 'Gula merah.',
+    detail: 'Gula merah, molase, atau gula aren menjadi sumber nutrisi & energi mikroba selama proses fermentasi.',
+    image: gulmerImg,
+    alt: 'Gula merah untuk eco enzim',
   },
   {
-    amount: '3 bagian',
-    name: 'Kulit buah & sayur',
-    detail: 'Pilih sisa buah dan sayur segar. Potong kecil agar mudah tercampur.',
+    name: 'Buah jeruk.',
+    detail: 'Gunakan potongan buah atau kulit jeruk segar. Menghasilkan aroma eco enzim yang harum dan segar alami.',
+    image: jerukImg,
+    alt: 'Buah jeruk segar untuk eco enzim',
   },
   {
-    amount: '10 bagian',
-    name: 'Air bersih',
-    detail: 'Gunakan air bersih. Sisakan ruang di wadah untuk gas fermentasi.',
+    name: 'Air bersih.',
+    detail: 'Gunakan air sumur, air mineral, atau air tanpa kaporit. Sisakan ruang di wadah untuk gas fermentasi.',
+    image: airImg,
+    alt: 'Air bersih untuk fermentasi eco enzim',
+  },
+]
+
+const tools = [
+  {
+    name: 'Pisau.',
+    detail: 'Digunakan untuk mencacah gula merah dan memotong buah jeruk menjadi bagian kecil agar cepat larut dan mudah terurai.',
+    image: pshtImg,
+    alt: 'Pisau dapur untuk memotong bahan praktikum',
+  },
+  {
+    name: 'Talenan.',
+    detail: 'Alas pemotong bahan agar proses pencacahan gula merah dan buah jeruk lebih aman, stabil, dan bersih.',
+    image: pshtImg,
+    alt: 'Talenan alas memotong bahan',
+  },
+  {
+    name: 'Saringan.',
+    detail: 'Menyaring larutan gula dari ampas kotoran kasar serta memisahkan cairan murni eco enzim dari ampas saat panen.',
+    image: pshtImg,
+    alt: 'Saringan halus larutan eco enzim',
+  },
+  {
+    name: 'Galon.',
+    detail: 'Wadah plastik bening bertutup rapat untuk proses fermentasi anaerob. Berikan ruang kosong 20% untuk ruang gas.',
+    image: galonImg,
+    alt: 'Galon plastik wadah fermentasi',
+  },
+  {
+    name: 'Ember.',
+    detail: 'Wadah perantara untuk mencampurkan cacahan gula merah dengan air bersih dan mengaduknya hingga benar-benar larut.',
+    image: emberImg,
+    alt: 'Ember wadah pelarutan gula dan air',
+  },
+  {
+    name: 'Timbangan.',
+    detail: 'Menakar berat bahan secara presisi agar memenuhi perbandingan rasio baku eco enzim 1 bagian gula : 3 buah : 10 air.',
+    image: timbanganImg,
+    alt: 'Timbangan untuk menakar bahan',
   },
 ]
 
 const steps = [
   {
-    title: 'Siapkan bahan',
-    description: 'Potong kecil sisa buah dan sayur. Hindari bahan berminyak, daging, dan makanan matang.',
-    image: 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=900&q=85',
-    alt: 'Buah untuk bahan eco enzim',
+    title: 'Cacah gula merah.',
+    description: 'Gula merah dipotong kecil-kecil di atas talenan supaya cepat larut di air. Pakai pisau yang besar dan hati-hati, pegang gula dengan tangan yang jauh dari mata pisau.',
+    image: oneImg,
+    alt: 'Gula merah dipotong kecil-kecil di atas talenan',
   },
   {
-    title: 'Campur gula dan air',
-    description: 'Larutkan gula merah di dalam air, lalu tuang ke wadah plastik bertutup.',
-    image: 'https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=900&q=85',
-    alt: 'Bahan alami untuk campuran eco enzim',
+    title: 'Larutkan gula dengan air.',
+    description: 'Gula merah yang sudah dicacah dimasukkan ke ember, lalu air bersih dituang sambil diaduk dengan centong sampai gulanya larut dan air berwarna cokelat. Kalau ada ampas, larutan bisa disaring.',
+    image: twoImg,
+    alt: 'Air dituang ke ember berisi gula merah sambil diaduk dengan centong hijau',
   },
   {
-    title: 'Masukkan sisa organik',
-    description: 'Tambahkan potongan kulit buah. Sisakan ruang kosong di bagian atas wadah.',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=85',
-    alt: 'Sayur dan kulit buah',
+    title: 'Masukkan buah jeruk ke galon.',
+    description: 'Potongan buah jeruk dimasukkan satu per satu ke galon bening lewat mulut botol. Potongan yang kecil lebih mudah masuk dan lebih cepat terurai.',
+    image: threeImg,
+    alt: 'Potongan buah jeruk dimasukkan ke dalam galon bening lewat mulut botol',
   },
   {
-    title: 'Fermentasikan',
-    description: 'Tutup dan simpan di tempat teduh selama 3 bulan. Buka tutup sebentar secara berkala pada bulan pertama.',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85',
-    alt: 'Bahan organik yang sudah disiapkan',
+    title: 'Tuang larutan ke galon.',
+    description: 'Tuang larutan gula merah pelan-pelan ke dalam galon, Sisakan sekitar seperempat galon kosong untuk ruang gas hasil fermentasi.',
+    image: fourImg,
+    alt: 'Larutan gula merah dituang ke dalam galon berisi buah jeruk',
+  },
+  {
+    title: 'Tutup, kocok, dan simpan.',
+    description: 'Galon ditutup rapat lalu digoyang pelan agar buah dan larutan tercampur. Beri label tanggal mulai, kemudian simpan di tempat teduh yang tidak kena sinar matahari langsung.',
+    image: fiveImg,
+    alt: 'Galon berisi potongan buah jeruk dan larutan gula ditutup rapat dan disimpan',
+  },
+  {
+    title: 'Pantau dan buang gas berkala.',
+    description: 'Beri label tanggal pembuatan pada galon. Pada bulan pertama, buka tutup sedikit setiap 1–2 hari untuk membuang gas fermentasi, lalu rapatkan kembali agar proses anaerob tetap optimal.',
+    image: sixImg,
+    alt: 'Pemeriksaan galon fermentasi dan pembuangan gas secara berkala',
   },
 ]
 
-const gallery = [
-  {
-    title: 'Bahan',
-    image: 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=900&q=85',
-    alt: 'Bahan buah untuk praktikum',
-  },
-  {
-    title: 'Pencampuran',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=85',
-    alt: 'Bahan organik untuk dicampur',
-  },
-  {
-    title: 'Fermentasi',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85',
-    alt: 'Dokumentasi bahan fermentasi',
-  },
-  {
-    title: 'Pengamatan',
-    image: 'https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=900&q=85',
-    alt: 'Dokumentasi pengamatan bahan',
-  },
-  {
-    title: 'Hasil penyaringan',
-    image: 'https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=900&q=85',
-    alt: 'Dokumentasi bahan hasil praktikum',
-  },
-  {
-    title: 'Eco enzim siap disimpan',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=85',
-    alt: 'Dokumentasi hasil praktikum',
-  },
-]
-
-function PageHero({ title, image }) {
-  const heroRef = useRef(null)
-  const heroImageRef = useRef(null)
+function useParallax(speed = 0.3) {
+  const containerRef = useRef(null)
+  const imageRef = useRef(null)
 
   useEffect(() => {
-    const hero = heroRef.current
-    const heroImage = heroImageRef.current
-    if (!hero || !heroImage) return undefined
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const container = containerRef.current
+    const image = imageRef.current
+    if (!container || !image || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return undefined
     }
 
@@ -107,12 +153,8 @@ function PageHero({ title, image }) {
 
     const handleScroll = () => {
       const scrollY = window.scrollY
-      const heroHeight = hero.offsetHeight
-
-      if (scrollY <= heroHeight + 60) {
-        // Parallax translation for the background image
-        const imageTranslate = scrollY * 0.28
-        heroImage.style.transform = `translate3d(0, ${imageTranslate}px, 0)`
+      if (scrollY <= container.offsetHeight + 60) {
+        image.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`
       }
     }
 
@@ -128,17 +170,37 @@ function PageHero({ title, image }) {
       window.removeEventListener('scroll', onScroll)
       if (rafId) cancelAnimationFrame(rafId)
     }
-  }, [])
+  }, [speed])
+
+  return [containerRef, imageRef]
+}
+
+function LazyImage({ src, alt }) {
+  return (
+    <img
+      alt={alt}
+      loading="lazy"
+      onLoad={(e) => e.currentTarget.classList.add('is-loaded')}
+      ref={(el) => {
+        if (el?.complete) el.classList.add('is-loaded')
+      }}
+      src={src}
+    />
+  )
+}
+
+function PageHero({ title, image }) {
+  const [heroRef, heroImageRef] = useParallax(0.28)
 
   return (
     <section className="page-hero" ref={heroRef}>
       <div
+        aria-hidden="true"
         className="page-hero-image"
         ref={heroImageRef}
         style={{
           backgroundImage: `linear-gradient(180deg, rgba(14, 22, 17, 0.40) 0%, rgba(14, 22, 17, 0.65) 50%, rgba(17, 26, 20, 0.96) 100%), url('${image}')`,
         }}
-        aria-hidden="true"
       />
       <div className="page-hero-content page-width">
         <h1>{title}</h1>
@@ -147,122 +209,157 @@ function PageHero({ title, image }) {
   )
 }
 
-const PageHeading = PageHero
-
 function HomePage() {
-  const heroRef = useRef(null)
-  const heroImageRef = useRef(null)
-
-  useEffect(() => {
-    const hero = heroRef.current
-    const heroImage = heroImageRef.current
-    if (!hero || !heroImage) return undefined
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return undefined
-    }
-
-    let rafId = null
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY
-      const heroHeight = hero.offsetHeight
-
-      if (scrollY <= heroHeight + 60) {
-        // Parallax translation for the background image
-        const imageTranslate = scrollY * 0.30
-        heroImage.style.transform = `translate3d(0, ${imageTranslate}px, 0)`
-      }
-    }
-
-    const onScroll = () => {
-      if (rafId) cancelAnimationFrame(rafId)
-      rafId = requestAnimationFrame(handleScroll)
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-    handleScroll()
-
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      if (rafId) cancelAnimationFrame(rafId)
-    }
-  }, [])
+  const [heroRef, heroImageRef] = useParallax(0.30)
 
   return (
     <main>
       <section className="hero" ref={heroRef}>
-        <div className="hero-image" ref={heroImageRef} />
+        <div
+          className="hero-image"
+          ref={heroImageRef}
+          style={{
+            backgroundImage: `linear-gradient(180deg, rgba(14, 22, 17, 0.45) 0%, rgba(18, 28, 22, 0.80) 55%, rgba(14, 22, 17, 0.96) 100%), linear-gradient(100deg, rgba(14, 22, 17, 0.85) 0%, rgba(14, 22, 17, 0.35) 100%), url('${heroImg}')`,
+          }}
+        />
         <div className="hero-content page-width">
-          <h1>Pembuatan<br /><em>Eco Enzim</em>.</h1>
-          <p className="hero-description">
-            Disiapkan oleh Kelompok berapa lah itu pokonya, XI RPL 1
-          </p>
+          <h1>Pembuatan<br /><em>Eco Enzyme</em>.</h1>
+          <p className="hero-description">Oleh Kelompok 3 dari XI RPL 1.</p>
         </div>
       </section>
+
       <section className="home-info">
         <div className="page-width">
           <div className="home-info-heading">
-            <h2>Mengolah sisa organik melalui fermentasi.</h2>
+            <h2>Manfaat nyata cairan hasil fermentasi.</h2>
           </div>
           <p className="home-info-copy">
-            Eco enzim dibuat dengan memfermentasikan gula, sisa buah dan sayur,
-            serta air. Proyek ini mendokumentasikan persiapan bahan, proses
-            fermentasi, dan pengamatan yang dilakukan kelompok.
+            Fermentasi gula merah dan buah jeruk menghasilkan cairan organik serbaguna yang kaya enzim aktif.
+            Digunakan untuk kebersihan rumah tangga, perawatan tanaman, hingga sanitasi lingkungan tanpa bahan kimia sintetis.
           </p>
-          <div className="home-facts">
-            <article><strong>1 : 3 : 10</strong><span>Rasio bahan</span></article>
-            <article><strong>3 bulan</strong><span>Waktu fermentasi</span></article>
-            <article><strong>Wadah tertutup</strong><span>Simpan di tempat teduh</span></article>
+          <div className="home-benefits-grid">
+            <article className="benefit-card">
+              <h3>Pembersih alami serbaguna.</h3>
+              <p>Pengganti sabun kimia untuk mengepel lantai, mencuci piring, membersihkan kaca jendela, dan melarutkan kerak lemak dapur.</p>
+            </article>
+            <article className="benefit-card">
+              <h3>Pupuk organik cair.</h3>
+              <p>Menyuburkan mikroba tanah, mempercepat penyerapan nutrisi akar, serta merangsang pertumbuhan tunas dan bunga tanaman.</p>
+            </article>
+            <article className="benefit-card">
+              <h3>Pengusir hama dan netralisir bau.</h3>
+              <p>Aroma asam-segar citrus efektif mengusir serangga, serta melancarkan dan menghilangkan bau selokan.</p>
+            </article>
           </div>
         </div>
       </section>
+
       <section className="home-guide page-width">
-        <span className="section-number">ALUR PRAKTIKUM</span>
+        <div className="home-guide-header">
+          <h2>Tahapan pembuatan eco enzim dari awal hingga panen.</h2>
+          <p>Alur kerja terstruktur yang dijalankan kelompok selama masa fermentasi eco enzim.</p>
+        </div>
         <div className="home-guide-grid">
-          <article><span>01</span><h3>Siapkan</h3><p>Ukur bahan dan siapkan wadah bersih.</p></article>
-          <article><span>02</span><h3>Fermentasikan</h3><p>Campur bahan, tutup, lalu amati berkala.</p></article>
-          <article><span>03</span><h3>Dokumentasikan</h3><p>Catat tanggal, perubahan, dan hasil akhir.</p></article>
+          <article className="guide-card">
+            <div className="guide-card-top">
+              <span className="guide-step">Hari ke-1</span>
+            </div>
+            <h3>Persiapan dan penakaran.</h3>
+            <p className="guide-desc">Menyiapkan bahan dengan rasio tepat 1 : 3 : 10 dan wadah plastik yang aman.</p>
+            <ul className="guide-list">
+              <li>1 bagian gula merah, 3 bagian potongan buah jeruk, dan 10 bagian air bersih.</li>
+              <li>Potong kecil buah jeruk agar luas permukaan kontak mikroba fermentasi maksimal.</li>
+              <li>Sisakan ruang kosong sekitar 20% di wadah untuk tekanan gas fermentasi.</li>
+            </ul>
+          </article>
+
+          <article className="guide-card">
+            <div className="guide-card-top">
+              <span className="guide-step">Bulan 1 — 3</span>
+            </div>
+            <h3>Fermentasi dan perawatan.</h3>
+            <p className="guide-desc">Menjaga proses fermentasi anaerob dan mengontrol pelepasan akumulasi gas.</p>
+            <ul className="guide-list">
+              <li>Buka tutup sedikit setiap 1–2 hari untuk membuang gas, lalu rapatkan kembali.</li>
+              <li>Gas mulai stabil, simpan wadah tanpa perlu sering dibuka di tempat teduh.</li>
+              <li>Aroma asam-segar khas jeruk; jamur putih halus di permukaan adalah tanda baik.</li>
+            </ul>
+          </article>
+
+          <article className="guide-card">
+            <div className="guide-card-top">
+              <span className="guide-step">Hari ke-90</span>
+            </div>
+            <h3>Penyaringan dan panen.</h3>
+            <p className="guide-desc">Memanen cairan enzim setelah 3 bulan dan memanfaatkan kembali sisa ampasnya.</p>
+            <ul className="guide-list">
+              <li>Saring cairan menggunakan kain kasa bersih, tuang ke botol tertutup rapat.</li>
+              <li>Cairan berwarna cokelat jernih beraroma harum fermentasi (tidak berbau busuk).</li>
+              <li>Ampas jeruk sisa dapat dikeringkan untuk pengharum atau dijadikan pupuk kompos.</li>
+            </ul>
+          </article>
         </div>
       </section>
     </main>
   )
 }
 
-function IngredientsPage() {
+function EquipmentPage() {
   return (
     <main className="inner-page">
-      <PageHero
-        image="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=2000&q=85"
-        title="Bahan."
-      />
+      <PageHero image={pshtImg} title="Perlengkapan." />
       <section className="content-section page-width">
+        <div className="equipment-section-head">
+          <h2>Bahan.</h2>
+          <p>Tiga komponen baku dalam fermentasi dengan perbandingan standar 1 : 3 : 10.</p>
+        </div>
+
         <div className="ingredient-grid">
-          {ingredients.map((item) => (
+          {ingredients.map((item, index) => (
             <article className="ingredient-card" key={item.name}>
-              <span>{item.amount}</span>
-              <h2>{item.name}</h2>
-              <p>{item.detail}</p>
+              <div className="ingredient-photo">
+                <LazyImage alt={item.alt} src={item.image} />
+                <span>{String(index + 1).padStart(2, '0')}</span>
+              </div>
+              <div className="ingredient-body">
+                <div className="ingredient-title-row">
+                  <h2>{item.name}</h2>
+                </div>
+                <p>{item.detail}</p>
+              </div>
             </article>
           ))}
         </div>
+
         <div className="ratio-example">
-          <span className="section-number">CONTOH TAKARAN</span>
-          <p><strong>100 g gula</strong><span>+</span><strong>300 g sisa organik</strong><span>+</span><strong>1 liter air</strong></p>
+          <span className="section-number">CONTOH TAKARAN:</span>
+          <div className="ratio-cards">
+            <span className="ratio-badge"><strong>100 g</strong> gula merah</span>
+            <span className="ratio-plus">+</span>
+            <span className="ratio-badge"><strong>300 g</strong> buah jeruk</span>
+            <span className="ratio-plus">+</span>
+            <span className="ratio-badge"><strong>1 liter</strong> air bersih</span>
+          </div>
         </div>
-        <div className="material-guidance">
-          <article>
-            <h2>Bahan yang bisa dipakai</h2>
-            <p>Kulit jeruk, nanas, apel, pepaya, serta sisa sayur yang masih segar.</p>
-          </article>
-          <article>
-            <h2>Hindari</h2>
-            <p>Sisa daging, produk susu, minyak, makanan matang, dan bahan yang sudah berjamur.</p>
-          </article>
-          <article>
-            <h2>Wadah</h2>
-            <p>Gunakan wadah plastik bersih dan bertutup. Jangan isi penuh agar tersedia ruang untuk gas.</p>
-          </article>
+
+        <div className="equipment-section-head" style={{ marginTop: '56px' }}>
+          <h2>Alat.</h2>
+          <p>Alat yang digunakan selama proses persiapan, pencacahan, penakaran, hingga fermentasi di galon.</p>
+        </div>
+
+        <div className="tools-grid">
+          {tools.map((tool, index) => (
+            <article className="tool-card" key={tool.name}>
+              <div className="tool-photo">
+                <LazyImage alt={tool.alt} src={tool.image} />
+                <span>{String(index + 1).padStart(2, '0')}</span>
+              </div>
+              <div className="tool-body">
+                <h2>{tool.name}</h2>
+                <p>{tool.detail}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
     </main>
@@ -272,16 +369,13 @@ function IngredientsPage() {
 function StepsPage() {
   return (
     <main className="inner-page steps-page">
-      <PageHero
-        image="https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=2000&q=85"
-        title="Pembuatan."
-      />
+      <PageHero image={pembuatanImg} title="Pembuatan." />
       <section className="content-section page-width">
         <div className="steps-grid">
           {steps.map((step, index) => (
             <article className="step-card" key={step.title}>
               <div className="step-photo">
-                <img alt={step.alt} loading="lazy" src={step.image} />
+                <LazyImage alt={step.alt} src={step.image} />
                 <span>{String(index + 1).padStart(2, '0')}</span>
               </div>
               <h2>{step.title}</h2>
@@ -292,15 +386,11 @@ function StepsPage() {
         <div className="fermentation-guide">
           <span className="section-number">PENGAMATAN FERMENTASI</span>
           <div className="fermentation-guide-grid">
-            <article><span>Bulan 1</span><p>Buka tutup secara berkala dengan hati-hati untuk mengeluarkan gas.</p></article>
-            <article><span>Bulan 2</span><p>Simpan di tempat teduh. Catat perubahan warna, aroma, dan kondisi wadah.</p></article>
-            <article><span>Bulan 3</span><p>Periksa hasil fermentasi sebelum disaring dan simpan catatan akhir kelompok.</p></article>
+            <article><span>Bulan 1.</span><p>Buka tutup secara berkala dengan hati-hati untuk mengeluarkan gas.</p></article>
+            <article><span>Bulan 2.</span><p>Simpan di tempat teduh. Catat perubahan warna, aroma, dan kondisi wadah.</p></article>
+            <article><span>Bulan 3.</span><p>Periksa hasil fermentasi sebelum disaring dan simpan catatan akhir kelompok.</p></article>
           </div>
         </div>
-        <aside className="safety-note">
-          <strong>Perhatian</strong>
-          <p>Jangan mengisi wadah sampai penuh. Jika tercium bau busuk menyengat atau terlihat kontaminasi, jangan gunakan hasilnya.</p>
-        </aside>
       </section>
     </main>
   )
@@ -308,31 +398,24 @@ function StepsPage() {
 
 function DocumentationPage() {
   return (
-    <main className="inner-page">
-      <PageHero
-        image="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=2000&q=85"
-        title="Dokumentasi."
-      />
-      <section className="content-section page-width">
-        <div className="gallery-grid">
-          {gallery.map((item) => (
-            <figure className="gallery-item" key={item.title}>
-              <img alt={item.alt} loading="lazy" src={item.image} />
-              <figcaption>{item.title}</figcaption>
-            </figure>
-          ))}
-        </div>
-        <div className="documentation-log">
-          <div>
-            <span className="section-number">CATATAN KELOMPOK</span>
-            <h2>Rekam prosesnya.</h2>
-            <p>Tambahkan tanggal dan hasil pengamatan saat foto praktikum diganti.</p>
-          </div>
-          <div className="log-rows">
-            <article><span>Persiapan</span><strong>Tanggal pembuatan · komposisi bahan</strong></article>
-            <article><span>Pengamatan</span><strong>Perubahan aroma, warna, dan kondisi wadah</strong></article>
-            <article><span>Hasil akhir</span><strong>Tanggal panen · kondisi eco enzim</strong></article>
-          </div>
+    <main className="inner-page documentation-page">
+      <section className="documentation-fullscreen-hero">
+        <div className="dome-gallery-fullscreen">
+          <DomeGallery
+            dragDampening={0.8}
+            dragSensitivity={16}
+            fit={0.8}
+            grayscale={false}
+            imageBorderRadius="16px"
+            images={dumpImages}
+            minRadius={680}
+            openedImageBorderRadius="24px"
+            openedImageHeight="min(88vw, 540px)"
+            openedImageWidth="min(88vw, 540px)"
+            overlayBlurColor="#121814"
+            padFactor={0.12}
+            segments={22}
+          />
         </div>
       </section>
     </main>
@@ -342,10 +425,7 @@ function DocumentationPage() {
 function NotFoundPage() {
   return (
     <main className="inner-page">
-      <PageHero
-        image="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=85"
-        title="Halaman tidak ditemukan."
-      />
+      <PageHero image={heroImg} title="Halaman tidak ditemukan." />
       <div className="page-width content-section">
         <Link className="hero-link" to="/">Kembali ke beranda <span aria-hidden="true">→</span></Link>
       </div>
@@ -357,7 +437,7 @@ function ScrollToTop({ lenisRef }) {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    if (lenisRef?.current) {
+    if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true })
     } else {
       window.scrollTo(0, 0)
@@ -367,22 +447,12 @@ function ScrollToTop({ lenisRef }) {
   return null
 }
 
-const PRELOAD_HERO_IMAGES = [
-  'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2000&q=85',
-  'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=2000&q=85',
-  'https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=2000&q=85',
-  'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=2000&q=85',
-  'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=85',
-]
-
 function App() {
   const lenisRef = useRef(null)
 
   useEffect(() => {
-    PRELOAD_HERO_IMAGES.forEach((src) => {
-      const img = new Image()
-      img.decoding = 'async'
-      img.src = src
+    [heroImg, pshtImg, pembuatanImg].forEach((src) => {
+      new Image().src = src
     })
   }, [])
 
@@ -425,22 +495,17 @@ function App() {
         colors={['#26392d', '#344a38', '#526344']}
         displayItemNumbering
         items={menuItems}
-        logoUrl="https://upload.wikimedia.org/wikipedia/commons/2/27/Plants-and-animals_-_DarkZaitzev_-_white_-_game-icons.svg"
+        logoUrl={logoImg}
         position="right"
       />
       <Routes>
         <Route element={<HomePage />} path="/" />
-        <Route element={<IngredientsPage />} path="/bahan" />
+        <Route element={<EquipmentPage />} path="/perlengkapan" />
+        <Route element={<EquipmentPage />} path="/bahan" />
         <Route element={<StepsPage />} path="/pembuatan" />
         <Route element={<DocumentationPage />} path="/dokumentasi" />
         <Route element={<NotFoundPage />} path="*" />
       </Routes>
-      <footer className="site-footer">
-        <div className="page-width">
-          <span>Eco Enzyme.</span>
-          <span>XI RPL 1</span>
-        </div>
-      </footer>
     </>
   )
 }

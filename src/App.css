@@ -1,7 +1,3 @@
-/* ==========================================================================
-   LAYOUT & CONTAINER ARCHITECTURE
-   ========================================================================== */
-
 .page-width {
   width: min(1040px, calc(100% - 48px));
   margin-inline: auto;
@@ -9,7 +5,6 @@
 
 .inner-page {
   min-height: calc(100vh - 64px);
-  padding-bottom: 64px;
   background: var(--page-bg);
   display: flex;
   flex-direction: column;
@@ -19,10 +14,6 @@
   padding-top: 48px;
   padding-bottom: 48px;
 }
-
-/* ==========================================================================
-   PAGE HERO (Small hero for inner pages, blurring under navbar)
-   ========================================================================== */
 
 .section-number {
   display: inline-block;
@@ -81,37 +72,6 @@
   font-weight: 400;
 }
 
-.page-heading {
-  padding-top: 104px;
-  padding-bottom: 40px;
-}
-
-.page-heading .section-number {
-  margin-bottom: 14px;
-}
-
-.page-heading h1 {
-  margin: 0;
-  color: var(--text);
-  font-family: var(--serif);
-  font-size: clamp(38px, 5.5vw, 54px);
-  font-weight: 400;
-  letter-spacing: -0.8px;
-  line-height: 1.1;
-}
-
-.page-heading p {
-  max-width: 580px;
-  margin: 12px 0 0;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.65;
-}
-
-/* ==========================================================================
-   HOMEPAGE: HERO SECTION (Static background, only link is interactive)
-   ========================================================================== */
-
 .hero {
   position: relative;
   min-height: 85vh;
@@ -128,9 +88,9 @@
   right: 0;
   height: 140%;
   background-image:
-    linear-gradient(180deg, rgba(14, 22, 17, 0.45) 0%, rgba(18, 28, 22, 0.80) 55%, rgba(14, 22, 17, 0.96) 100%),
-    linear-gradient(100deg, rgba(14, 22, 17, 0.85) 0%, rgba(14, 22, 17, 0.35) 100%),
-    url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2000&q=85');
+  linear-gradient(180deg, rgba(14, 22, 17, 0.45) 0%, rgba(18, 28, 22, 0.80) 55%, rgba(14, 22, 17, 0.96) 100%),
+  linear-gradient(100deg, rgba(14, 22, 17, 0.85) 0%, rgba(14, 22, 17, 0.35) 100%),
+  url('./assets/images/hero.jpeg');
   background-position: center, center 52%;
   background-size: cover;
   pointer-events: none;
@@ -144,16 +104,6 @@
   padding-bottom: 84px;
   color: #f3f5ee;
   will-change: transform, opacity;
-}
-
-.eyebrow {
-  display: inline-block;
-  margin: 0 0 16px;
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
 .hero h1 {
@@ -179,11 +129,6 @@
   font-size: 15px;
   line-height: 1.65;
 }
-
-
-/* ==========================================================================
-   HOMEPAGE: ABOUT & FACTS SECTION (Static cards)
-   ========================================================================== */
 
 .home-info {
   padding: 72px 0 76px;
@@ -212,66 +157,22 @@
   line-height: 1.75;
 }
 
-.home-facts {
+.home-benefits-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
-.home-facts article {
+.benefit-card {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 22px 24px;
+  padding: 24px 22px;
   background: var(--surface);
   border-radius: var(--radius-md);
 }
 
-.home-facts strong {
-  color: var(--accent);
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: -0.3px;
-}
-
-.home-facts span {
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 400;
-}
-
-/* ==========================================================================
-   HOMEPAGE: WORKFLOW GUIDE SECTION (Static cards)
-   ========================================================================== */
-
-.home-guide {
-  padding-top: 68px;
-  padding-bottom: 84px;
-}
-
-.home-guide-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
-  margin-top: 24px;
-}
-
-.home-guide-grid article {
-  padding-top: 20px;
-  background: #566840;
-}
-
-.home-guide-grid article > span {
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  font-feature-settings: "tnum";
-}
-
-.home-guide-grid h3 {
-  margin: 10px 0 8px;
+.benefit-card h3 {
+  margin: 0 0 10px;
   color: var(--text);
   font-family: var(--serif);
   font-size: 21px;
@@ -279,42 +180,71 @@
   letter-spacing: -0.2px;
 }
 
-.home-guide-grid p {
+.benefit-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.65;
+  font-size: 13.5px;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 
-/* ==========================================================================
-   PAGE: BAHAN (INGREDIENTS - Static cards)
-   ========================================================================== */
+.home-guide {
+  padding-top: 72px;
+  padding-bottom: 88px;
+}
 
-.ingredient-grid {
+.home-guide-header {
+  margin-bottom: 32px;
+}
+
+.home-guide-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 400;
+  color: var(--text);
+  margin: 12px 0 10px;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+}
+
+.home-guide-header p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0;
+}
+
+.home-guide-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 20px;
 }
 
-.ingredient-card {
-  padding: 24px;
+.guide-card {
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border-radius: var(--radius-md);
+  padding: 26px 24px;
 }
 
-.ingredient-card > span {
-  display: inline-block;
+.guide-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.guide-step {
   color: var(--accent);
-  background: var(--accent-dim);
-  border-radius: var(--radius-full);
-  padding: 3px 10px;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   letter-spacing: 0.5px;
-  margin-bottom: 14px;
+  font-feature-settings: "tnum";
 }
 
-.ingredient-card h2 {
+.guide-card h3 {
   margin: 0 0 10px;
   color: var(--text);
   font-family: var(--serif);
@@ -323,7 +253,143 @@
   letter-spacing: -0.2px;
 }
 
-.ingredient-card p {
+.guide-desc {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.guide-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  flex-grow: 1;
+}
+
+.guide-list li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.guide-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.guide-list li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.ingredient-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ingredient-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.ingredient-photo,
+.tool-photo,
+.step-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    #1b2720 0%,
+    #293b2f 50%,
+    #1b2720 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+
+.ingredient-photo img,
+.tool-photo img,
+.step-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.ingredient-photo img.is-loaded,
+.tool-photo img.is-loaded,
+.step-photo img.is-loaded {
+  opacity: 1;
+}
+
+.ingredient-photo > span {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-block;
+  color: #ffffff;
+  background: rgba(18, 24, 20, 0.82);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-full);
+  padding: 4px 11px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.ingredient-body {
+  padding: 22px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.ingredient-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ingredient-title-row h2 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+}
+
+.ingredient-body p {
   margin: 0;
   color: var(--muted);
   font-size: 13.5px;
@@ -331,76 +397,129 @@
 }
 
 .ratio-example {
-  margin-top: 36px;
-  padding: 26px 28px;
-  background: var(--surface-2);
+  margin-top: 18px;
+  padding: 14px 20px;
+  background: var(--surface);
   border-radius: var(--radius-md);
-}
-
-.ratio-example > p {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 16px 0 0;
-  color: var(--muted);
-  font-size: 14px;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.ratio-example strong {
+.ratio-example .section-number {
+  flex-shrink: 0;
+  font-size: 11px;
+}
+
+.ratio-cards {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.ratio-badge {
   display: inline-flex;
   align-items: center;
-  padding: 8px 16px;
-  background: var(--surface);
+  gap: 6px;
+  padding: 8px 14px;
+  background: var(--surface-2);
   border-radius: var(--radius-sm);
-  color: var(--text);
-  font-size: 14px;
-  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  white-space: nowrap;
 }
 
-.ratio-example > p > span {
+.ratio-badge strong {
   color: var(--accent);
-  font-size: 16px;
   font-weight: 600;
 }
 
-.material-guidance {
+.ratio-plus {
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 600;
+  user-select: none;
+}
+
+.equipment-section-head {
+  margin-bottom: 24px;
+}
+
+.equipment-section-head h2 {
+  margin: 8px 0 6px;
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.8vw, 32px);
+  font-weight: 400;
+  letter-spacing: -0.3px;
+}
+
+.equipment-section-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+.tools-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 32px;
 }
 
-.material-guidance article {
-  padding: 24px;
+.tool-card {
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
-.material-guidance h2 {
-  margin: 0 0 10px;
+.tool-photo > span {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-block;
+  color: #ffffff;
+  background: rgba(18, 24, 20, 0.82);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-full);
+  padding: 4px 11px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.tool-body {
+  padding: 22px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.tool-body h2 {
+  margin: 0 0 8px;
   color: var(--text);
   font-family: var(--serif);
-  font-size: 19px;
+  font-size: 22px;
   font-weight: 400;
   letter-spacing: -0.2px;
 }
 
-.material-guidance p {
+.tool-body p {
   margin: 0;
   color: var(--muted);
   font-size: 13.5px;
   line-height: 1.65;
 }
 
-/* ==========================================================================
-   PAGE: CARA MEMBUAT (STEPS - Static cards)
-   ========================================================================== */
-
 .steps-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .step-card {
@@ -409,20 +528,6 @@
   background: var(--surface);
   border-radius: var(--radius-md);
   overflow: hidden;
-}
-
-.step-photo {
-  position: relative;
-  height: 180px;
-  overflow: hidden;
-  background: var(--line);
-}
-
-.step-photo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .step-photo > span {
@@ -493,309 +598,111 @@
   line-height: 1.65;
 }
 
-.safety-note {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  margin-top: 24px;
-  padding: 18px 24px;
-  background: rgba(169, 189, 131, 0.08);
-  border-radius: var(--radius-md);
-}
-
-.safety-note strong {
-  flex-shrink: 0;
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.safety-note p {
-  margin: 0;
-  color: var(--text-secondary);
-  font-size: 13.5px;
-  line-height: 1.6;
-}
-
-/* ==========================================================================
-   PAGE: DOKUMENTASI (DOCUMENTATION & GALLERY - Static cards)
-   ========================================================================== */
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.gallery-item {
+.documentation-fullscreen-hero {
   position: relative;
-  height: 230px;
-  margin: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 580px;
   overflow: hidden;
-  background: var(--line);
-  border-radius: var(--radius-md);
+  background: var(--page-bg, #121814);
 }
 
-.gallery-item img {
-  display: block;
+.dome-gallery-fullscreen {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  z-index: 1;
 }
-
-.gallery-item figcaption {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 38px 18px 14px;
-  color: #ffffff;
-  background: linear-gradient(to top, rgba(14, 20, 16, 0.94) 0%, rgba(14, 20, 16, 0.55) 60%, transparent 100%);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-}
-
-.documentation-log {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 48px;
-  align-items: start;
-  margin-top: 48px;
-  padding: 36px;
-  background: var(--surface-2);
-  border-radius: var(--radius-md);
-}
-
-.documentation-log h2 {
-  margin: 12px 0 10px;
-  color: var(--text);
-  font-family: var(--serif);
-  font-size: clamp(28px, 3.5vw, 36px);
-  font-weight: 400;
-  line-height: 1.18;
-  letter-spacing: -0.4px;
-}
-
-.documentation-log > div:first-child > p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.65;
-  max-width: 360px;
-}
-
-.log-rows {
-  display: flex;
-  flex-direction: column;
-}
-
-.log-rows article {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 16px 0;
-}
-
-.log-rows article:first-child {
-  padding-top: 0;
-}
-
-.log-rows article:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-.log-rows span {
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.log-rows strong {
-  color: var(--text-secondary);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.5;
-}
-
-/* ==========================================================================
-   SITE FOOTER (Clean Apple-like understatement)
-   ========================================================================== */
-
-.site-footer {
-  margin-top: auto;
-  padding: 28px 0;
-  background: var(--surface);
-}
-
-.site-footer > div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-}
-
-.site-footer span {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.site-footer span:first-child {
-  color: var(--text);
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  font-size: 11px;
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN (Fluidity, no overflow, Apple consistency)
-   ========================================================================== */
 
 @media (max-width: 900px) {
   .steps-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-  }
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
 
-  .step-photo {
-    height: 190px;
-  }
-
-  .documentation-log {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 28px;
-  }
 }
 
 @media (max-width: 768px) {
   .page-width {
-    width: calc(100% - 36px);
-  }
+  width: calc(100% - 36px);
+}
 
-  .page-heading {
-    padding-top: 92px;
-    padding-bottom: 32px;
-  }
+.hero {
+  min-height: 460px;
+}
 
-  .hero {
-    min-height: 460px;
-  }
+.hero-content {
+  padding-top: 104px;
+  padding-bottom: 68px;
+}
 
-  .hero-content {
-    padding-top: 104px;
-    padding-bottom: 68px;
-  }
+.home-benefits-grid {
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
 
-  .home-facts {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+.home-guide-grid {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
 
-  .home-guide-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+.ingredient-grid {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
 
-  .ingredient-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+.tools-grid {
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
 
-  .material-guidance {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+.fermentation-guide-grid {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
 
-  .fermentation-guide-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .gallery-item {
-    height: 190px;
-  }
 }
 
 @media (max-width: 520px) {
   .page-width {
-    width: calc(100% - 32px);
-  }
+  width: calc(100% - 32px);
+}
 
-  .page-heading {
-    padding-top: 84px;
-    padding-bottom: 26px;
-  }
+.hero {
+  min-height: 420px;
+}
 
-  .hero {
-    min-height: 420px;
-  }
+.hero-content {
+  padding-top: 92px;
+  padding-bottom: 56px;
+}
 
-  .hero-content {
-    padding-top: 92px;
-    padding-bottom: 56px;
-  }
+.hero-description {
+  font-size: 14px;
+}
 
-  .hero-description {
-    font-size: 14px;
-  }
+.content-section {
+  padding-top: 32px;
+  padding-bottom: 36px;
+}
 
-  .content-section {
-    padding-top: 32px;
-    padding-bottom: 36px;
-  }
+.ratio-example {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+}
 
-  .ratio-example {
-    padding: 20px;
-  }
+.ratio-cards {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
 
-  .ratio-example strong {
-    font-size: 13px;
-    padding: 6px 12px;
-  }
-
-  .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .step-photo {
-    height: 200px;
-  }
-
-  .safety-note {
-    flex-direction: column;
-    gap: 8px;
-    padding: 16px 18px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .gallery-item {
-    height: 210px;
-  }
-
-  .documentation-log {
-    padding: 22px;
-    margin-top: 32px;
-  }
-
-  .site-footer > div {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
+.steps-grid {
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
 }
