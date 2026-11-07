@@ -11,6 +11,6 @@
 
 <div align="center">
   
-> "Plants and animals" by DarkZaitzev is licensed under CC BY 3.0. Available at: [game-icons.net](https://game-icons.net/1x1/darkzaitzev/plants-and-animals.html).
+"Plants and animals" by DarkZaitzev is licensed under CC BY 3.0. Available at: [game-icons.net](https://game-icons.net/1x1/darkzaitzev/plants-and-animals.html).
   
 </div>
